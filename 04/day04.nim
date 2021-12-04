@@ -56,13 +56,6 @@ proc mark(i: int, n: string) =
       if boards[i].nums[x][y][0] == n:
         boards[i].nums[x][y][1] = true
 
-proc printBoard(b: int) =
-  for x in 0..4:
-    for y in 0..4:
-      stdout.write(boards[b].nums[x][y])
-    stdout.write("\n")
-  stdout.write("\n")
-
 proc calcSum(b: int): int =
   var sum: int = 0
   for x in 0..4:
@@ -83,7 +76,6 @@ for n in nums:
       if check(i) != 0:
         boards[i].won = true
         won.add((i, calcSum(i) * parseInt(n)))
-      # printBoard(i)
 
-echo fmt"Part One: {won[0][1]}"
-echo fmt"Part Two: {won[won.high][1]}"
+echo fmt"Part One: Board: {won[0][0]} = {won[0][1]}"
+echo fmt"Part Two: Board: {won[won.high][0]} = {won[won.high][1]}"
