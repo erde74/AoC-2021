@@ -42,7 +42,6 @@ proc sim(days: int) =
     tmp[6] += fish[0]
     fish = tmp
 
-
   var result = 0
   for r in fish:
     result += r
