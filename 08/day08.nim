@@ -24,7 +24,7 @@ proc partOne: int =
       of seven.len: inc result
       of eight.len: inc result
       else:
-        discard   
+        discard
 
 proc deduceZero(data: seq[string], t: array[0..9, HashSet[char]]): Hashset[char] =
   let a = t[9] - t[4] + t[1]
@@ -46,9 +46,9 @@ proc deduceFive(data: seq[string], t: array[0..9, HashSet[char]]): Hashset[char]
       result = a + (dhs - a)
 
 proc deduceSix(data: seq[string], t: array[0..9, HashSet[char]]): Hashset[char] =
-    let ef = t[8] - t[5]
-    let en = t[8] - t[9]
-    result = t[8] - (ef - en)
+  let ef = t[8] - t[5]
+  let en = t[8] - t[9]
+  result = t[8] - (ef - en)
 
 proc deduceNine(data: seq[string], t: array[0..9, HashSet[char]]): Hashset[char] =
   let s = t[4] + t[7]
@@ -71,9 +71,9 @@ proc partTwo: int =
     let output = i.split(" | ")[1].split(" ")
     for o in input:
       case o.len:
-      of one.len: 
+      of one.len:
         t[1] = o.toHashSet()
-      of four.len: 
+      of four.len:
         t[4] = o.toHashSet()
       of seven.len:
         t[7] = o.toHashSet()
@@ -94,7 +94,7 @@ proc partTwo: int =
         if o.toHashSet() == t[i]:
           tmp &= fmt"{i}"
     result += parseInt(tmp)
-    
-    
+
+
 echo partOne()
 echo partTwo()
